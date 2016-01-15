@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :monsters
+  resources :teams
   root to: 'visitors#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

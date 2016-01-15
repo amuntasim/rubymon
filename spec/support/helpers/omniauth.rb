@@ -2,8 +2,8 @@ module Omniauth
 
   module Mock
     def auth_mock
-      OmniAuth.config.mock_auth[:twitter] = {
-        'provider' => 'twitter',
+      OmniAuth.config.mock_auth[:facebook] = {
+        'provider' => 'facebook',
         'uid' => '123545',
         'user_info' => {
           'name' => 'mockuser'

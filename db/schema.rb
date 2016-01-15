@@ -11,17 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115015155) do
+ActiveRecord::Schema.define(version: 20160115084935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "monsters", force: :cascade do |t|
+    t.string   "name",       limit: 100
+    t.string   "power",      limit: 100
+    t.string   "category",   limit: 20
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "monsters", ["user_id"], name: "index_monsters_on_user_id", using: :btree
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "monsters_count", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "monsters_count",            default: 0
+    t.integer  "teams_count",               default: 0
+    t.string   "auth_token",     limit: 40
   end
+
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", using: :btree
 
 end

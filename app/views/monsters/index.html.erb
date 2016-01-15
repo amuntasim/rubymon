@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Monsters</h1>
+
+<table class="table table-condensed">
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Power</td>
+    <td></td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @monsters.each do |monster| %>
+      <tr>
+        <td><%= monster.name %></td>
+        <td><%= monster.category %></td>
+        <td><%= monster.power %></td>
+        <td>
+          <%= link_to 'Show', monster %>
+          <%= link_to 'Edit', edit_monster_path(monster) %>
+          <%= link_to 'Destroy', monster, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monster', new_monster_path %>
