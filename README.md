@@ -1,48 +1,15 @@
 Rubymon
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+ Rubymon is a mobile app that allows players to catch, collect monsters, and eventually battle them. The game is played on a mobile app but we want to store user and monster information in the cloud. We need you to create a RESTful backend API to store and organize the monsters.
 
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
+ Technical requirements:
+ 1. Ruby and PostgreSQL
 
-Problems? Issues?
------------
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+ ###To run
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.1.0
-- Rails 4.2.5
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+  --rake db:create
+  --rake db:migrate
+  --rails s -p 3000 #facebook app id is registered for localhost:3000
+ 
